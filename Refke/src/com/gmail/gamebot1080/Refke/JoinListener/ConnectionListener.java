@@ -10,7 +10,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 
-public class idk implements Listener{
+public class ConnectionListener implements Listener{
 
     //****Only working for referees at the moment!****
 

@@ -1,8 +1,16 @@
 name: Refke
 main: com.gmail.gamebot1080.Refke.Refke
 version: 1.0
-description: for the moment this only say the name of refs
 commands:
   ref:
     description: for the moment this only say the name of refs.
-    
+    usage: /ref
+  mute:
+    description: Mute players
+    usage: /mute [player]
+  unmute:
+    description: Unmute muted players.
+    usage: /unmute [player]
+  captain:
+    description: Set the team's captains.
+    captain: /captain [player]

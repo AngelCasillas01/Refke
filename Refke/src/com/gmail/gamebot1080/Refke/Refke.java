@@ -102,6 +102,38 @@ public class Refke extends JavaPlugin {
   
  } 
  
+ @Override
+ public boolean onCommand(CommandSender sender, Command command, String CommandLabel, String[] args) {
+         if(CommandLabel.equalsIgnoreCase("captain")){
+           if(sender.isOp()){
+            if(args.length == 0){
+               sender.sendMessage(ChatColor.RED + "/captain <player>");
+            }else if(!(args.length > 1)){
+               Player target = Bukkit.getPlayer(args[0]);
+               
+               if(target == null){
+                 sender.sendMessage(ChatColor.RED + "Player not online!");
+                 return false;
+               }
+               
+               if(target.getDisplayName().contains("Captain"){
+                 String newdisp = target.getDisplayName().replace("[Captain]", "");
+                 target.setDisplayName(newdisp);
+                 sender.sendMessage(ChatColor.RED + "Succesfully un-captained " + target.getName());
+                 target.sendMessage(ChatColor.RED + "You are no longer a captain!");
+                 return true;
+               }
+               
+               target.setDisplayName(ChatColor.GRAY + "[" + ChatColor.GREEN + "Captain" + ChatColor.GRAY + "] " + target.getDisplayName());
+               sender.sendMessage(ChatColor.YELLOW + "You captained " + target.getName());
+               target.sendMessage(ChatColor.YELLOW + "You are now a captain!");
+               return true;
+            }
+           }
+         }return false;
+  
+ } 
+ 
  
   @Override
  public boolean onCommand(CommandSender sender, Command command, String CommandLabel, String[] args) {

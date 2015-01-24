@@ -9,16 +9,34 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
  
 public class Refke extends JavaPlugin {
+
+    public static ArrayList<String> mplayers = new ArrayList<>();
+
         private Logger logger = Logger.getLogger("Minecraft");
     public void sendConsole(String Message){
         this.logger.info("[Refke]" + Message);      
        
     }
     public void onEnable() {
+
+      Bukkit.getServer().registerEvents(this, this);
        
     }
     public void onDisable() {
        
+    }
+
+    @EventHandler
+    public void onChat(PlayerChatEvent e){
+      Player p = e.getPlayer();
+
+      if(mplayers.contains(p.getName)){
+         e.setCancelled(true)
+         
+         p.sendMessage(ChatColor.RED + "Message was not sent because you are muted!");
+      }
+
+
     }
     @Override
     public boolean onCommand(CommandSender sender, Command command, String CommandLabel, String[] args) {
@@ -34,6 +52,15 @@ public class Refke extends JavaPlugin {
                 
                 
          }
+
+         if(CommandLabel.equalsIgnoreCase("mute")){
+           if(sender.isOp()){
+            if(args.length == 0){
+               sender.sendMessage(ChatColor.RED + "/mute <player>");
+            }
+           }
+         }
+
 
 
  return false;

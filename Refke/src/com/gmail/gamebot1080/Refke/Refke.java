@@ -11,6 +11,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class Refke extends JavaPlugin {
 
     public static ArrayList<String> mplayers = new ArrayList<>();
+    
+    public static ArratList<String> refs = new ArrayList<>();
 
         private Logger logger = Logger.getLogger("Minecraft");
     public void sendConsole(String Message){
@@ -18,6 +20,12 @@ public class Refke extends JavaPlugin {
        
     }
     public void onEnable() {
+     
+     refs.add("vYuri");
+     refs.add("lauty01capo");
+     refs.add("Vixo1");
+     refs.add("C4477");
+     refs.add("javipepe");
 
       Bukkit.getServer().registerEvents(this, this);
        
@@ -54,7 +62,8 @@ public class Refke extends JavaPlugin {
     	 Player player = (Player)sender;
          if(CommandLabel.equalsIgnoreCase("ref")){
                  if(args.length == 0){
-                         player.sendMessage(ChatColor.GREEN + "Referees: "); player.sendMessage(ChatColor.AQUA + "{PLAYERS}");
+                         player.sendMessage(ChatColor.GRAY + "Referees: " + compoundList(refs, "", ChatColor.DARK_GRAY + "");
+                         return true;
                  
                  }
                 

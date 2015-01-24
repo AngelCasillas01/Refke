@@ -1,5 +1,5 @@
 # Refke
-Plugin for add refs in your server
+Plugin used to add refs in your server
 
 # In Development
 

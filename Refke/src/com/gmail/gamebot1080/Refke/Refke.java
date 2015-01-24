@@ -79,17 +79,18 @@ public class Refke extends JavaPlugin {
            if(sender.isOp()){
             if(args.length == 0){
                sender.sendMessage(ChatColor.RED + "/mute <player>");
+               return true;
             }else if(!(args.length > 1)){
                Player target = Bukkit.getPlayer(args[0]);
                
                if(target == null){
                  sender.sendMessage(ChatColor.RED + "Player not online!");
-                 return false;
+                 return true;
                }
                
                if(mplayers.contains(target.getName())){
                  sender.sendMessage(ChatColor.DARK_RED + target.getDisplayName() + ChatColor.YELLOW + " is already muted! Use /unmute " + target.getName() + " to unmute him/her!");
-                 return false;
+                 return true;
                }
                
                mplayers.add(target.getName);
@@ -108,12 +109,13 @@ public class Refke extends JavaPlugin {
            if(sender.isOp()){
             if(args.length == 0){
                sender.sendMessage(ChatColor.RED + "/captain <player>");
+               return true;
             }else if(!(args.length > 1)){
                Player target = Bukkit.getPlayer(args[0]);
                
                if(target == null){
                  sender.sendMessage(ChatColor.RED + "Player not online!");
-                 return false;
+                 return true;
                }
                
                if(target.getDisplayName().contains("Captain"){
@@ -141,17 +143,18 @@ public class Refke extends JavaPlugin {
            if(sender.isOp()){
             if(args.length == 0){
                sender.sendMessage(ChatColor.RED + "/unmute <player>");
+               return true;
             }else if(!(args.length > 1)){
                Player target = Bukkit.getPlayer(args[0]);
                
                if(target == null){
                  sender.sendMessage(ChatColor.RED + "Player not online!");
-                 return false;
+                 return true;
                }
                
                if(mplayers.contains(target.getName()){
                  sender.sendMessage(target.getDisplayName() + ChatColor.YELLOW + " is not muted. Use /mute " + target.getName() + " to mute him/her!");
-                 return false;
+                 return true;
                }
                
                mplayers.add(target.getName);

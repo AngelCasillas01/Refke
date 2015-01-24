@@ -12,7 +12,7 @@ public class Refke extends JavaPlugin {
 
     public static ArrayList<String> mplayers = new ArrayList<>();
     
-    public static ArratList<String> refs = new ArrayList<>();
+    public static ArrayList<String> refs = new ArrayList<>();
 
         private Logger logger = Logger.getLogger("Minecraft");
     public void sendConsole(String Message){

@@ -28,6 +28,7 @@ public class Refke extends JavaPlugin {
      refs.add("javipepe");
 
       Bukkit.getServer().registerEvents(this, this);
+      Bukkit.getServer().registerEvents(ConnectionListener.class, this);
        
     }
     public void onDisable() {

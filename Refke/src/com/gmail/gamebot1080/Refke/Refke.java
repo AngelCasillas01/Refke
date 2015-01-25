@@ -3,7 +3,10 @@ package com.gmail.gamebot1080.Refke;
 import java.util.logging.Logger;
  
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.Server;
 import org.bukkit.command.Command;
+import org.bukkit.Sound;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -135,7 +138,50 @@ public class Refke extends JavaPlugin {
          }return false;
   
  } 
- 
+
+ //****only testing! ****
+
+  @Override
+   public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
+    {
+        if (cmd.getName().equalsIgnoreCase("m"))
+        {
+            if (sender.isOp()) {
+                if (args.length < 2)
+                {
+                    sender.sendMessage(ChatColor.RED + "Usage: /m chat [message]");
+                }
+                else
+                {
+                    String ReportName = args[0];
+                    String ReportReson = "";
+                    for (int i = 1; i <= args.length - 1; i++)
+                    {
+                        ReportReson = ReportReson + args[i];
+                        if (i != args.length - 1) {
+                            ReportReson = ReportReson + " ";
+                        }
+                    }
+                    Player[] arrayOfPlayer;
+                    int j = (arrayOfPlayer = getServer().getOnlinePlayers()).length;
+                    for (int i = 0; i < j; i++)
+                    {
+                        Player player = arrayOfPlayer[i];
+                        Player s = (Player) sender
+                        Location location = player.getLocation();
+                        if (player.isOp())
+                        {
+                            player.sendMessage(ChatColor.WHITE + "[" + ChatColor.GOLD + "M" + ChatColor.WHITE + "]" + ChatColor.WHITE + " [" + ChatColor.GOLD + "Kyetho" + ChatColor.WHITE + "] " + ChatColor.DARK_AQUA + s.getDisplayName() + ChatColor.YELLOW + ": " + ReportReson);
+                            player.playSound(location, Sound.NOTE_BASS_GUITAR, 1.0F, 0.0F);
+                        }
+                    }
+                }
+            }else{
+                sender.sendMessage(ChatColor.RED + "You don´t have permission to use modchat!");
+               return true;
+            }
+           }
+         }return false;
  
   @Override
  public boolean onCommand(CommandSender sender, Command command, String CommandLabel, String[] args) {

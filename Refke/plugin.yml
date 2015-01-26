@@ -3,8 +3,11 @@ main: com.gmail.gamebot1080.Refke.Refke
 version: 1.0
 commands:
   ref:
-    description: for the moment this only say the name of refs.
+    description: only say the name of refs.
     usage: /ref
+  ref add:
+    description: for the moment this is only for add a player to ref list.
+    usage: /ref [player]
   mute:
     description: Mute players
     usage: /mute [player]

@@ -182,6 +182,41 @@ public class Refke extends JavaPlugin {
             }
            }
          }return false;
+           
+ } 
+ 
+ @Override
+ public boolean onCommand(CommandSender sender, Command command, String CommandLabel, String[] args) {
+         if(CommandLabel.equalsIgnoreCase("ref")){
+           if(sender.isOp()){
+            if(args.length == 0){
+               sender.sendMessage(ChatColor.RED + "/ref <player>");
+               return true;
+            }else if(!(args.length > 1)){
+               Player target = Bukkit.getPlayer(args[0]);
+               
+               if(target == null){
+                 sender.sendMessage(ChatColor.RED + "Player not online!");
+                 return true;
+               }
+               
+               if(target.getDisplayName().contains("ref"){
+                 String newdisp = target.getDisplayName().replace("[Ref]", "");
+                 target.setDisplayName(newdisp);
+                 sender.sendMessage(ChatColor.RED + "Successfully un-referee " + target.getName());
+                 target.sendMessage(ChatColor.RED + "You are no longer a referee!");
+                 return true;
+               }
+               
+               target.setDisplayName(ChatColor.GRAY + "[" + ChatColor.GREEN + "Referee" + ChatColor.GRAY + "] " + target.getDisplayName());
+               sender.sendMessage(ChatColor.YELLOW + "You referee" + target.getName());
+               target.sendMessage(ChatColor.YELLOW + "You are now a referee!");
+               return true;
+            }
+           }
+         }return false;
+  
+ } 
  
   @Override
  public boolean onCommand(CommandSender sender, Command command, String CommandLabel, String[] args) {

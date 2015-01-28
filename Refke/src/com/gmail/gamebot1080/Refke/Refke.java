@@ -80,8 +80,10 @@ public class Refke extends JavaPlugin {
          public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
                
                 if (!(sender instanceof Player)) {
+                  if(args.length == 0){
                         sender.sendMessage(ChatColor.RED + "The console cannot use heal!");
                         return true;
+                  }
                 }
                
                 Player player = (Player) sender;

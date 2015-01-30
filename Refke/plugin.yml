@@ -17,3 +17,9 @@ commands:
   captain:
     description: Set the team's captains.
     captain: /captain [player]
+  fly:
+    description: Fly in players.
+    captain: /fly [player]
+  heal:
+    description: Heal.
+    captain: /heal [player]

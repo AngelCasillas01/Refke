@@ -21,3 +21,5 @@ public class Broadcast implements CommandExecutor {
     }
     
 }
+
+/*Credit to Vixo1*/
